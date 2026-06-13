@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Стратегия лидерства на Юге России</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root {
+    --black: #0a0a0a;
+    --espresso: #1a1008;
+    --crema: #f5ede0;
+    --amber: #c8732a;
+    --amber-bright: #e8892e;
+    --green: #1d4a2a;
+    --red: #c0392b;
+    --muted: #6b5a4a;
+    --line: rgba(200,115,42,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--crema);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,10,10,0.95);
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 0;
+    padding: 0 32px; height: 52px;
+    backdrop-filter: blur(12px);
+  }
+  nav span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px; letter-spacing: 2px;
+    color: var(--amber); margin-right: auto;
+  }
+  .nav-links { display: flex; gap: 2px; }
+  .nav-links a {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--muted); text-decoration: none;
+    padding: 6px 12px; border-radius: 3px;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover { color: var(--crema); background: rgba(200,115,42,0.1); }
+
+  /* HERO */
+  .hero {
+    margin-top: 52px;
+    padding: 80px 32px 60px;
+    border-bottom: 1px solid var(--line);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: center;
+    background: radial-gradient(ellipse at 70% 50%, rgba(200,115,42,0.06) 0%, transparent 60%);
+  }
+  .hero-label {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 6vw, 84px);
+    line-height: 0.95; letter-spacing: 1px;
+    color: var(--crema);
+  }
+  .hero h1 em { color: var(--amber); font-style: normal; }
+  .hero-sub {
+    margin-top: 24px; font-size: 14px; color: var(--muted);
+    max-width: 420px; line-height: 1.7;
+  }
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px; overflow: hidden;
+  }
+  .stat {
+    background: rgba(26,16,8,0.8);
+    padding: 28px 24px;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px; line-height: 1;
+    color: var(--amber);
+  }
+  .stat-label { font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 0.5px; }
+  .stat-note { font-size: 11px; color: var(--green); margin-top: 2px; }
+
+  /* SECTIONS */
+  .section {
+    padding: 64px 32px;
+    border-bottom: 1px solid var(--line);
+    max-width: 1100px; margin: 0 auto;
+  }
+  .section-label {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1; margin-bottom: 40px;
+    color: var(--crema);
+  }
+  .section-title span { color: var(--amber); }
+
+  /* TABS */
+  .tabs { display: flex; gap: 2px; margin-bottom: 32px; flex-wrap: wrap; }
+  .tab {
+    padding: 8px 18px; font-size: 12px; letter-spacing: 1px;
+    text-transform: uppercase; cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 3px; color: var(--muted);
+    transition: all 0.2s; background: none;
+  }
+  .tab:hover { color: var(--crema); border-color: var(--line); }
+  .tab.active { background: var(--amber); color: var(--black); border-color: var(--amber); font-weight: 600; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* GRID CARDS */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+
+  .card {
+    background: rgba(26,16,8,0.5);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 24px;
+  }
+  .card:hover { border-color: rgba(200,115,42,0.4); }
+  .card-icon { font-size: 24px; margin-bottom: 12px; }
+  .card-title { font-size: 13px; font-weight: 600; color: var(--crema); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .card-body { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .card-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px; color: var(--amber);
+    line-height: 1; margin-bottom: 4px;
+  }
+
+  /* TIMELINE */
+  .timeline { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+  .tl-item {
+    padding: 28px 28px 28px 0;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .tl-item:last-child { border-right: none; padding-right: 0; padding-left: 28px; }
+  .tl-item:nth-child(2) { padding: 28px 28px; }
+  .tl-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--amber); margin-bottom: 16px;
+  }
+  .tl-year {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px; letter-spacing: 3px;
+    color: var(--amber); margin-bottom: 8px;
+  }
+  .tl-title { font-weight: 600; font-size: 16px; margin-bottom: 12px; }
+  .tl-items { list-style: none; }
+  .tl-items li {
+    font-size: 13px; color: var(--muted);
+    padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex; gap: 8px;
+  }
+  .tl-items li::before { content: "→"; color: var(--amber); flex-shrink: 0; }
+
+  /* MISTAKES */
+  .mistake-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .mistake {
+    background: rgba(192,57,43,0.06);
+    border: 1px solid rgba(192,57,43,0.2);
+    border-radius: 4px;
+    padding: 20px;
+    display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start;
+  }
+  .mistake-x {
+    width: 28px; height: 28px;
+    background: rgba(192,57,43,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--red); font-size: 14px; font-weight: 700; flex-shrink: 0;
+  }
+  .mistake-title { font-size: 13px; font-weight: 600; color: #e07070; margin-bottom: 4px; }
+  .mistake-body { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  /* ADVANTAGES */
+  .adv-row {
+    display: grid; grid-template-columns: 80px 1fr 1fr;
+    gap: 20px; align-items: center;
+    padding: 16px 0; border-bottom: 1px solid var(--line);
+  }
+  .adv-row:last-child { border-bottom: none; }
+  .adv-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--amber); letter-spacing: 1px;
+  }
+  .adv-what { font-size: 13px; font-weight: 500; }
+  .adv-how { font-size: 12px; color: var(--muted); }
+
+  /* METRICS TABLE */
+  .metrics-table { width: 100%; border-collapse: collapse; }
+  .metrics-table th {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--amber); text-align: left;
+    padding: 10px 16px; border-bottom: 1px solid var(--line);
+  }
+  .metrics-table td {
+    padding: 14px 16px; font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+  }
+  .metrics-table td:first-child { color: var(--muted); font-size: 12px; }
+  .metrics-table td:last-child { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--amber); }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px; border-radius: 2px;
+    font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .badge-green { background: rgba(29,74,42,0.4); color: #5dba7e; }
+  .badge-red { background: rgba(192,57,43,0.2); color: #e07070; }
+  .badge-amber { background: rgba(200,115,42,0.2); color: var(--amber-bright); }
+
+  /* CALLOUT */
+  .callout {
+    background: rgba(200,115,42,0.07);
+    border-left: 3px solid var(--amber);
+    padding: 20px 24px; border-radius: 0 4px 4px 0;
+    margin: 24px 0;
+  }
+  .callout-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 6px; }
+  .callout p { font-size: 14px; line-height: 1.7; }
+
+  /* PROGRESS BARS */
+  .bar-row { margin-bottom: 14px; }
+  .bar-label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; }
+  .bar-label span:last-child { color: var(--amber); font-family: 'JetBrains Mono', monospace; }
+  .bar-track { height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; }
+  .bar-fill { height: 4px; background: var(--amber); border-radius: 2px; transition: width 1s ease; }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 40px;
+    font-size: 11px; color: var(--muted); letter-spacing: 1px;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .grid-2, .grid-3, .grid-4, .timeline, .mistake-grid { grid-template-columns: 1fr; }
+    .adv-row { grid-template-columns: 1fr; }
+    .tl-item, .tl-item:last-child, .tl-item:nth-child(2) { padding: 20px 0; border-right: none; border-bottom: 1px solid var(--line); }
+    nav { padding: 0 16px; }
+    .nav-links a { padding: 6px 8px; font-size: 10px; }
+    .section { padding: 40px 16px; }
+    .hero { padding: 40px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span>☕ КОФЕ-СТРАТЕГИЯ</span>
+  <div class="nav-links">
+    <a href="#market">Рынок</a>
+    <a href="#strategy">Стратегия</a>
+    <a href="#mistakes">Ошибки</a>
+    <a href="#roadmap">Роадмап</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div style="max-width:1100px;margin:0 auto;">
+<div class="hero" id="top">
+  <div>
+    <div class="hero-label">Стратегия лидерства · Юг России · 3 года</div>
+    <h1>ОТ СТАВРОПОЛЯ<br>ДО <em>ЛИДЕРА</em><br>ОКРУГА</h1>
+    <p class="hero-sub">
+      Рынок кофеен ЮФО растёт на 18–22% в год. Конкуренты делают одинаковые ошибки. 
+      Здесь — конкретный план вырасти в 4–5 раз быстрее рынка и взять долю до того, 
+      как это сделает федеральный игрок.
+    </p>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">18%</div>
+      <div class="stat-label">Рост рынка кофеен ЮФО в год</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Года до доминирующей позиции</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">×5</div>
+      <div class="stat-label">Целевой рост относительно рынка</div>
+      <div class="stat-note">↑ возможно при правильной модели</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Городов ЮФО без сильного регионального игрока</div>
+    </div>
+  </div>
+</div>
+
+<!-- MARKET ANALYSIS -->
+<div class="section" id="market">
+  <div class="section-label">Блок 01</div>
+  <div class="section-title">Рынок и <span>конкуренты</span></div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab(this,'market-tabs','market-overview')">Обзор рынка</button>
+    <button class="tab" onclick="switchTab(this,'market-tabs','market-competitors')">Конкуренты</button>
+    <button class="tab" onclick="switchTab(this,'market-tabs','market-consumer')">Потребители</button>
+    <button class="tab" onclick="switchTab(this,'market-tabs','market-trends')">Тренды</button>
+  </div>
+
+  <div id="market-tabs">
+    <div class="tab-content active" id="market-overview">
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-num">~2.4 млн</div>
+          <div class="card-label" style="font-size:11px;color:var(--muted);">Население Ставрополья</div>
+          <div class="card-body" style="margin-top:10px;">Плотность кофеен на 100К жителей — ниже федеральных городов в 2.5–3 раза. Рынок недозаполнен.</div>
+        </div>
+        <div class="card">
+          <div class="card-num">280–350₽</div>
+          <div class="card-label" style="font-size:11px;color:var(--muted);">Средний чек в регионе</div>
+          <div class="card-body" style="margin-top:10px;">На 30–40% ниже московского. Но маржинальность аналогична при правильном ценообразовании и локальных поставках.</div>
+        </div>
+        <div class="card">
+          <div class="card-num">12–15%</div>
+          <div class="card-label" style="font-size:11px;color:var(--muted);">EBITDA средней кофейни ЮФО</div>
+          <div class="card-body" style="margin-top:10px;">При системной работе с себестоимостью и собственном обжаривании — можно поднять до 22–27%.</div>
+        </div>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Главный инсайт</div>
+        <p>Федеральные сети (Кофемания, One Price Coffee, Даблби) не заходят глубоко в ЮФО — логистика, стандарты, кадры. Это окно в 2–3 года пока ни один региональный игрок не вырастил сеть из 15+ точек по округу. Кто сделает это первым — получает right of first mover.</p>
+      </div>
+    </div>
+
+    <div class="tab-content" id="market-competitors">
+      <table class="metrics-table">
+        <thead>
+          <tr>
+            <th>Тип игрока</th>
+            <th>Что делает хорошо</th>
+            <th>Слабое место</th>
+            <th>Угроза</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Местные одиночки (1–2 точки)</td>
+            <td>Атмосфера, лояльность района</td>
+            <td>Нет системы, всё завязано на владельце</td>
+            <td style="color:var(--muted)"><span class="badge badge-green">Низкая</span></td>
+          </tr>
+          <tr>
+            <td>Кофе-с-собой форматы</td>
+            <td>Скорость, цена, трафик</td>
+            <td>Нет retention, ноль опыта, нет дифференциации</td>
+            <td><span class="badge badge-amber">Средняя</span></td>
+          </tr>
+          <tr>
+            <td>Региональные сети (3–6 точек)</td>
+            <td>Узнаваемость в своём городе</td>
+            <td>Нет денег на масштаб, слабая операционка</td>
+            <td><span class="badge badge-amber">Средняя</span></td>
+          </tr>
+          <tr>
+            <td>Федеральные сети</td>
+            <td>Бренд, стандарты, IT</td>
+            <td>Не адаптированы к ЮФО, дорогой вход</td>
+            <td><span class="badge badge-red">Высокая через 3–5 лет</span></td>
+          </tr>
+          <tr>
+            <td>Пекарни со кофе (Буше-like)</td>
+            <td>Трафик от еды</td>
+            <td>Кофе — не ДНК, не инвестируют в продукт</td>
+            <td style="color:var(--muted)"><span class="badge badge-green">Низкая</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tab-content" id="market-consumer">
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">👩‍💻</div>
+          <div class="card-title">Офисный работник, 25–35</div>
+          <div class="card-body">Утро + обед. Нужна скорость и предсказуемость. Ценит мобильный заказ. Чувствителен к карте лояльности. Среднечек 280–320₽.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎓</div>
+          <div class="card-title">Студент, 18–24</div>
+          <div class="card-body">Пространство важнее кофе. Wifi, розетки, нешумно. Чек 180–240₽. Высокий LTV если завязать через приложение.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">👔</div>
+          <div class="card-title">Премиум-сегмент, 30–45</div>
+          <div class="card-body">Альтернативные методы заварки, единственный. Чек 450–600₽. Не пойдёт в «безликое место». Нужен статус и экспертиза персонала.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="market-trends">
+      <div class="grid-2">
+        <div>
+          <div class="bar-row">
+            <div class="bar-label"><span>Specialty-кофе</span><span>↑ +34%/год</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>Mobile order & pay</span><span>↑ +47%/год</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>Собственное обжаривание</span><span>↑ +28%/год</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>Подписки на кофе</span><span>↑ +61%/год</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>Форматы "третье место"</span><span>↑ +22%/год</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:55%"></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="callout">
+            <div class="callout-label">Мегатренд</div>
+            <p>Кофейная подписка (30 чашек в месяц = 1 890₽) — это гарантированный ARR с нулевым оттоком. В регионах этого не делает никто. Кто внедрит первым — получает 30–40% выручки в виде предсказуемого MRR.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STRATEGY SECTION -->
+<div class="section" id="strategy">
+  <div class="section-label">Блок 02</div>
+  <div class="section-title">Стратегические <span>решения</span></div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab(this,'strat-tabs','strat-formats')">Форматы</button>
+    <button class="tab" onclick="switchTab(this,'strat-tabs','strat-tech')">Технологии</button>
+    <button class="tab" onclick="switchTab(this,'strat-tabs','strat-loyalty')">Лояльность</button>
+    <button class="tab" onclick="switchTab(this,'strat-tabs','strat-franchise')">Франчайзинг</button>
+    <button class="tab" onclick="switchTab(this,'strat-tabs','strat-roasting')">Обжарка</button>
+  </div>
+
+  <div id="strat-tabs">
+    <div class="tab-content active" id="strat-formats">
+      <div class="grid-3">
+        <div class="card" style="border-color:rgba(200,115,42,0.5);">
+          <div class="card-icon">⚡</div>
+          <div class="card-title">Express-точки (кофе с собой)</div>
+          <div class="card-body">Площадь 10–30 м². Оборот 400К–700К/мес. Открыть 8–10 штук в первые 12 месяцев. Это кэш-машина для финансирования флагмана.</div>
+        </div>
+        <div class="card" style="border-color:rgba(200,115,42,0.5);">
+          <div class="card-icon">🏛</div>
+          <div class="card-title">Flagship-кофейня</div>
+          <div class="card-body">80–120 м², 1 точка в каждом городе присутствия. Specialty, своя обжарка, обучение, медиа. Это ДНК бренда и витрина для франшизы.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏢</div>
+          <div class="card-title">B2B офисный формат</div>
+          <div class="card-body">Кофе-станции в офисах, коворкингах, клиниках. Минимальные инвестиции, предсказуемый чек. Маршрут-логистика покрывается одним бариста.</div>
+        </div>
+      </div>
+      <div style="margin-top:16px;">
+        <div class="callout">
+          <div class="callout-label">Формульная логика</div>
+          <p>Express-точки = генерация кэша → финансирует Flagship → Flagship строит бренд → бренд делает франшизу продаваемой. Это не три разных бизнеса — это одна машина.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="strat-tech">
+      <div class="grid-2">
+        <div>
+          <div class="adv-row">
+            <div class="adv-num">TECH-01</div>
+            <div class="adv-what">Мобильное приложение с pre-order</div>
+            <div class="adv-how">Сокращает время ожидания, поднимает чек на 15–20% за счёт upsell. Разработка: 1.5–2 млн ₽ или white-label решение (~300К₽).</div>
+          </div>
+          <div class="adv-row">
+            <div class="adv-num">TECH-02</div>
+            <div class="adv-what">Облачная система учёта (iiko / Poster)</div>
+            <div class="adv-how">Единый дашборд для всех точек. Контроль food cost в реальном времени. Без этого масштаб = хаос.</div>
+          </div>
+          <div class="adv-row">
+            <div class="adv-num">TECH-03</div>
+            <div class="adv-what">Автоматические кофемашины на express-точках</div>
+            <div class="adv-how">Jura или суперавтоматы Franke. Убирают зависимость от бариста, стабилизируют качество, сокращают ФОТ на 35–40%.</div>
+          </div>
+          <div class="adv-row">
+            <div class="adv-num">TECH-04</div>
+            <div class="adv-what">QR-меню + digital signage</div>
+            <div class="adv-how">Мгновенные акции, сезонные позиции, A/B тестирование цен без затрат на печать.</div>
+          </div>
+        </div>
+        <div>
+          <div class="callout">
+            <div class="callout-label">Автоматизация — это не про модно</div>
+            <p>Главная боль кофеен — зависимость от конкретного бариста. Ушёл бариста = упала выручка. Автоматизация на express-точках решает это радикально. Flagship нужны живые люди и шоу — там автоматы не нужны.</p>
+          </div>
+          <div class="card" style="margin-top:16px; background:rgba(29,74,42,0.15); border-color:rgba(29,74,42,0.4);">
+            <div class="card-title" style="color:#5dba7e;">ROI автоматизации express-точки</div>
+            <div class="card-body">
+              Экономия ФОТ: ~35К₽/мес<br>
+              Доп. выручка (скорость × трафик): ~25К₽/мес<br>
+              Суперавтомат стоит: 400–600К₽<br>
+              <strong style="color:#5dba7e;">Окупаемость: 7–10 месяцев</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="strat-loyalty">
+      <div class="grid-2">
+        <div class="card" style="border-color:rgba(200,115,42,0.4);">
+          <div class="card-title">☕ Кофейная подписка</div>
+          <div class="card-body" style="margin-top:8px;">
+            <strong style="color:var(--crema);">Модель:</strong> 30 стандартных напитков за 1 890₽/мес (vs 270₽ поштучно — скидка 30%)<br><br>
+            <strong style="color:var(--crema);">Зачем вам:</strong> Предсказуемый MRR. 1 000 подписчиков = 1.89 млн/мес гарантированной выручки.<br><br>
+            <strong style="color:var(--crema);">Зачем клиенту:</strong> Экономия + привязка к сети. Отток подписчиков = 3–5% vs 25–30% у разовых.<br><br>
+            <strong style="color:#5dba7e;">→ Нет ни одной сети ЮФО с этой моделью. First mover advantage.</strong>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">🎯 Многоуровневая программа</div>
+          <div class="card-body" style="margin-top:8px;">
+            <strong style="color:var(--crema);">Бронза</strong> — до 15 покупок/мес → 5% кэшбэк<br>
+            <strong style="color:#c0c0c0;">Серебро</strong> — 15–30 → 8% + приоритет<br>
+            <strong style="color:#ffd700;">Золото</strong> — 30+ → 12% + закрытые дегустации<br><br>
+            Не штамп-карточки! Мобильное приложение с историей, бонусами, уведомлениями. Персонализированные предложения по истории заказов.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">🤝 B2B-лояльность</div>
+          <div class="card-body" style="margin-top:8px;">Корпоративные счёта для офисов — 50+ сотрудников получают скидку 15% и единый счёт для бухгалтерии. Контракт на год. Это ARR без маркетинговых затрат.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">📣 Реферальная механика</div>
+          <div class="card-body" style="margin-top:8px;">Привёл друга → оба получают 3 бесплатных кофе. Стоимость привлечения: ~250₽ vs 800–1200₽ через таргет. LTV нового клиента через реферал выше на 40%.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="strat-franchise">
+      <div class="callout">
+        <div class="callout-label">Когда запускать франшизу</div>
+        <p>Не раньше, чем у вас 5+ работающих точек с оцифрованными стандартами. Продавать франшизу с 2 точками — это продавать хаос. Покупатель провалится, и вы потеряете репутацию в регионе на годы.</p>
+      </div>
+      <div class="grid-2" style="margin-top:24px;">
+        <div>
+          <div class="adv-row">
+            <div class="adv-num">F-01</div>
+            <div class="adv-what">Паушальный взнос</div>
+            <div class="adv-how">800К–1.2 млн ₽ за точку. Ниже федеральных (2–3 млн) — это конкурентное преимущество для входа франчайзи в регионе.</div>
+          </div>
+          <div class="adv-row">
+            <div class="adv-num">F-02</div>
+            <div class="adv-what">Роялти</div>
+            <div class="adv-how">3–5% от оборота. Не фиксированная сумма — роялти от оборота мотивирует вас помогать партнёру расти.</div>
+          </div>
+          <div class="adv-row">
+            <div class="adv-num">F-03</div>
+            <div class="adv-what">Обязательная закупка зерна</div>
+            <div class="adv-how">Только ваша обжарка. Это второй revenue stream и гарантия качества продукта под вашим брендом.</div>
+          </div>
+          <div class="adv-row">
+            <div class="adv-num">F-04</div>
+            <div class="adv-what">Территориальное ограничение</div>
+            <div class="adv-how">Эксклюзив на город при объёме от 2 точек. Это продаёт франшизу дороже и быстрее.</div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Целевые города для франшизы (очерёдность)</div>
+            <div class="card-body" style="margin-top:10px;">
+              1. Пятигорск / КМВ — туристический трафик, нет сильных игроков<br>
+              2. Краснодар — большой рынок, высокая конкуренция, нужен сильный бренд<br>
+              3. Ростов-на-Дону — 1.1 млн жителей, premium-запрос растёт<br>
+              4. Волгоград — недозаполненный рынок<br>
+              5. Сочи — туристический, сезонный, но высокий чек
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="strat-roasting">
+      <div class="grid-2">
+        <div class="card" style="border-color:rgba(200,115,42,0.5);">
+          <div class="card-title">☕ Собственная обжарка — зачем это делать</div>
+          <div class="card-body" style="margin-top:10px;">
+            <strong style="color:var(--crema);">Маржа на зерне:</strong> покупаете зелёное зерно за 600–900₽/кг, продаёте обжаренное за 2 500–4 000₽/кг. Маржа 3–4x.<br><br>
+            <strong style="color:var(--crema);">Контроль качества:</strong> нет зависимости от поставщика. Можете менять профиль обжарки под свой вкус.<br><br>
+            <strong style="color:var(--crema);">Бренд:</strong> своя обжарка = экспертиза. Это работает на premium-восприятие.<br><br>
+            <strong style="color:var(--crema);">Дополнительный канал:</strong> продажа зерна в рестораны, офисы, через интернет-магазин. Это B2B-канал с минимальными маркетинговыми затратами.
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Инвестиции в обжарку</div>
+            <div class="card-body" style="margin-top:10px;">
+              Ростер 5–12 кг загрузки: 800К–1.8 млн ₽<br>
+              Помещение: 30–50 м² (можно совместить со складом)<br>
+              Обучение ростера: 150–300К₽<br>
+              Запас зелёного зерна (3 мес): 300–500К₽<br><br>
+              <strong style="color:var(--amber);">Итого вход: ~1.5–2.5 млн ₽</strong><br>
+              Окупаемость при 5+ собственных точках: 14–18 месяцев
+            </div>
+          </div>
+          <div class="card" style="margin-top:12px; background:rgba(29,74,42,0.15); border-color:rgba(29,74,42,0.4);">
+            <div class="card-title" style="color:#5dba7e;">Когда делать</div>
+            <div class="card-body">Год 2 стратегии. Не раньше — нужен объём потребления ваших точек + понимание, какой профиль нужен вашей аудитории.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MISTAKES -->
+<div class="section" id="mistakes">
+  <div class="section-label">Блок 03</div>
+  <div class="section-title">Ошибки <span>90% владельцев</span></div>
+  <div class="mistake-grid">
+    <div class="mistake">
+      <div class="mistake-x">✕</div>
+      <div>
+        <div class="mistake-title">Открывают кофейню, а не бизнес</div>
+        <div class="mistake-body">Влюблены в продукт, но не считают unit-экономику. Не знают food cost, не контролируют ФОТ-долю. Результат: выручка есть, денег нет.</div>
+      </div>
+    </div>
+    <div class="mistake">
+      <div class="mistake-x">✕</div>
+      <div>
+        <div class="mistake-title">Зависимость от одного бариста-звезды</div>
+        <div class="mistake-body">Ушёл — упала выручка на 20–30%. Масштаб без стандартизации невозможен. Процессы должны работать без героев.</div>
+      </div>
+    </div>
+    <div class="mistake">
+      <div class="mistake-x">✕</div>
+      <div>
+        <div class="mistake-title">Не работают с retention</div>
+        <div class="mistake-body">Тратят 90% маркетинга на привлечение нового клиента. Возврат существующего стоит в 5–7 раз дешевле. Нет программы лояльности — нет бизнеса долгосрочно.</div>
+      </div>
+    </div>
+    <div class="mistake">
+      <div class="mistake-x">✕</div>
+      <div>
+        <div class="mistake-title">Неправильная локация по красивой аренде</div>
+        <div class="mistake-body">Берут место "с красивым видом" или "дёшево". Не считают пешеходный трафик в часы пик. 80% провальных кофеен — это проблема локации, не продукта.</div>
+      </div>
+    </div>
+    <div class="mistake">
+      <div class="mistake-x">✕</div>
+      <div>
+        <div class="mistake-title">Слишком большое меню</div>
+        <div class="mistake-body">50+ позиций = медленный сервис, высокий food cost, путаница. Топ-кофейни мира работают с 8–12 позициями. Ширина меню убивает скорость и маржу.</div>
+      </div>
+    </div>
+    <div class="mistake">
+      <div class="mistake-x">✕</div>
+      <div>
+        <div class="mistake-title">Масштабируют слишком рано или слишком поздно</div>
+        <div class="mistake-body">Либо открывают вторую точку пока первая не вышла на стабильные показатели, либо ждут 5 лет. Окно для захвата рынка ЮФО — сейчас, не через 5 лет.</div>
+      </div>
+    </div>
+    <div class="mistake">
+      <div class="mistake-x">✕</div>
+      <div>
+        <div class="mistake-title">Нет data-driven принятия решений</div>
+        <div class="mistake-body">Работают "на ощущениях". Не отслеживают конверсию трафика, средний чек по часам, возврат клиентов. Без данных невозможно управлять цепочкой точек.</div>
+      </div>
+    </div>
+    <div class="mistake">
+      <div class="mistake-x">✕</div>
+      <div>
+        <div class="mistake-title">Игнорируют B2B-канал</div>
+        <div class="mistake-body">Кофе для офисов, доставка в коворкинги, корпоративные подписки — всё это регулярный ARR без маркетинговых затрат. 90% кофеен это не делают вообще.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<div class="section" id="roadmap">
+  <div class="section-label">Блок 04</div>
+  <div class="section-title">Роадмап <span>3 года</span></div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">ГОД 1 · ФУНДАМЕНТ</div>
+      <div class="tl-title">Системизация и кэш</div>
+      <ul class="tl-items">
+        <li>Оцифровать unit-экономику каждой точки</li>
+        <li>Внедрить iiko или Poster — единый учёт</li>
+        <li>Запустить мобильную карту лояльности</li>
+        <li>Открыть 4–6 express-точек (кэш-машина)</li>
+        <li>Запустить кофейную подписку — MVP</li>
+        <li>Нанять операционного менеджера</li>
+        <li>Стандартизировать все процессы (SOP)</li>
+        <li>Запустить Instagram/VK с контентом обжарки</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">ГОД 2 · МАСШТАБ</div>
+      <div class="tl-title">Регион и продукт</div>
+      <ul class="tl-items">
+        <li>Выход в 2–3 города ЮФО (КМВ, Краснодар)</li>
+        <li>Открыть собственную обжарку</li>
+        <li>Запустить мобильное приложение</li>
+        <li>Продать 2–3 первые франшизы партнёрам</li>
+        <li>B2B канал — контракты с офисами</li>
+        <li>Итого точек: 15–20 собственных + 2–3 франчайзи</li>
+        <li>Запустить онлайн-продажу зерна</li>
+        <li>Медиа-присутствие как эксперт рынка</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">ГОД 3 · ДОМИНИРОВАНИЕ</div>
+      <div class="tl-title">Лидер округа</div>
+      <ul class="tl-items">
+        <li>Присутствие в 5–6 городах ЮФО</li>
+        <li>30+ собственных точек + 10–15 франчайзи</li>
+        <li>Оборот: 300–500 млн ₽/год</li>
+        <li>Обжарка: продажа зерна B2B конкурентам</li>
+        <li>Рассмотреть привлечение инвестора или PE</li>
+        <li>Подготовка к возможному выходу / партнёрству</li>
+        <li>Сильный HR-бренд — своя академия бариста</li>
+        <li>Медийность: региональный эксперт №1</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <div class="section-label" style="margin-bottom:16px;">Ключевые метрики по годам</div>
+    <table class="metrics-table">
+      <thead>
+        <tr>
+          <th>Метрика</th>
+          <th>Сейчас (база)</th>
+          <th>Год 1</th>
+          <th>Год 2</th>
+          <th>Год 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Точки собственные</td>
+          <td>текущие</td>
+          <td>+6–8</td>
+          <td>15–20</td>
+          <td>30+</td>
+        </tr>
+        <tr>
+          <td>Франчайзи-точки</td>
+          <td>0</td>
+          <td>0</td>
+          <td>2–5</td>
+          <td>10–20</td>
+        </tr>
+        <tr>
+          <td>Города присутствия</td>
+          <td>1</td>
+          <td>1–2</td>
+          <td>3–4</td>
+          <td>5–7</td>
+        </tr>
+        <tr>
+          <td>Выручка (оценка)</td>
+          <td>база</td>
+          <td>×2.5</td>
+          <td>×6</td>
+          <td>×14–18</td>
+        </tr>
+        <tr>
+          <td>EBITDA margin</td>
+          <td>~12–15%</td>
+          <td>16–19%</td>
+          <td>20–24%</td>
+          <td>24–28%</td>
+        </tr>
+        <tr>
+          <td>Подписчики (кофе-подписка)</td>
+          <td>0</td>
+          <td>300–500</td>
+          <td>2 000+</td>
+          <td>8 000+</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout" style="margin-top:32px;">
+    <div class="callout-label">Главный принцип</div>
+    <p>Скорость — это ваше оружие. Федеральные игроки зайдут в ЮФО через 3–4 года. Ваша задача — стать <strong>слишком дорогими для вытеснения</strong> к тому моменту: сильный локальный бренд, 1 000+ корпоративных контрактов, армия подписчиков, и покрытие во всех ключевых городах. Тогда федерал либо купит вас, либо обойдёт стороной.</p>
+  </div>
+</div>
+
+</div><!-- /max-width wrapper -->
+
+<footer>
+  КОФЕ-СТРАТЕГИЯ · ЮГ РОССИИ · 2024–2027 · КОНФИДЕНЦИАЛЬНО
+</footer>
+
+<script>
+function switchTab(btn, groupId, targetId) {
+  const group = document.getElementById(groupId);
+  group.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  group.querySelector('#' + targetId).classList.add('active');
+  btn.closest('.tabs').querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Animate bars on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.bar-fill').forEach(bar => {
+        const w = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => bar.style.width = w, 100);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.tab-content').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
